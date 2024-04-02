@@ -1,6 +1,7 @@
 ## About ##
 
-Pendulum Simulation with UI interface.
+Pendulum Simulation with UI interface and collision detection. All movements are calculated on the server side, and visualized in real-time on the client.
+
 
 ## Architecture ##
 ![Architecture](./pendulum_architecture_.png)
@@ -11,12 +12,10 @@ The project contains 3 parts:
 3. mqtt4 folder with docker file and config to run mqtt server locally.
 
 ## Updates ##
-- Added FPS. Server and Client
-- Changed collision logic. Now it works for Balls and Lines
-- Added build.sh and run.sh scripts to simplify running process.
+- Added FPS for the Server and Client
+- Added build.sh and run.sh scripts to simplify the running process.
 - Added Pendulum numbers on the UI
 - Added offset parameter for the collisions. server_main/.env COLLISION_OFFSET=5
-- some small fixes for build scripts
 
 ## Info ##
 - User interface uses P5JS to draw graphics
@@ -28,13 +27,10 @@ The project contains 3 parts:
 - Collision detection happening on the Main Server in real-time.
 
 ## Notes ##
-- Collision detection works only for balls, not for lines. I tried implementing full detection but didn't have enough time to fix bugs.
 - Almost no tests in the projects. Again because of the time limit. I added only 2 integration tests for REST endpoints. (do: cd main_server ,and npm test)
-- No HTTP pooling on the client side, it's too slow, so I'm using WebSockets to get updates. Despite that, you can use GET /settings endpoint to load all needed info in real-time.
-- No TypeScript for the client UI. I had some issues with my local nodejs configuration and didn't have time to deal with it, so it's plain JavaScript
-- The STOP button in the UI always resets settings to the default value. It's easy to change, but again, time.
+- No TypeScript for the client UI.
+- The STOP button in the UI always resets settings to the default value.
 - Then you click on the Ball in UI you can see additional settings. For now, it's just Ball Size and Friction Air, but basically, it's really easy to add others, like Mass, etc...
-- No simulation rate setting yet, but it can be easily implemented on the Main Server side. For now, the goal was to show results as fast as possible.
 
 ## HTTP Endpoint ##
 ```shell
