@@ -3,13 +3,9 @@
 Pendulum Simulation with UI interface.
 
 ## Architecture ##
-![Architecture](http://not-null.com/pendulum_architecture_.png)
+![Architecture](./pendulum_architecture_.png)
 
-- NEW: Added demo: http://164.92.64.150/
-The server is small, so the FPS will be lower than on local machine.
-
-
-The project contains 2 servers:
+The project contains 3 parts:
 1. main_server - HTTP / WebSocket server. It serves user interface HTML, REST, and WebSocket endpoints 
 2. main_worker - WebSocket clients/servers to calculate physics, one Pendulum per instance.
 3. mqtt4 folder with docker file and config to run mqtt server locally.
